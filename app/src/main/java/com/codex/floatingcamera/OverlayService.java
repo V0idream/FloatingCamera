@@ -95,7 +95,7 @@ public class OverlayService extends Service {
             layoutParams.gravity = Gravity.TOP | Gravity.START;
             layoutParams.x = dp(24);
             layoutParams.y = dp(160);
-            layoutParams.alpha = alpha / 100f;
+            layoutParams.alpha = 1f;
             try {
                 windowManager.addView(floatingButton, layoutParams);
             } catch (RuntimeException exception) {
@@ -107,7 +107,7 @@ public class OverlayService extends Service {
         } else {
             layoutParams.width = sizePx;
             layoutParams.height = sizePx;
-            layoutParams.alpha = alpha / 100f;
+            layoutParams.alpha = 1f;
             updateFloatingButton(sizePx);
             try {
                 windowManager.updateViewLayout(floatingButton, layoutParams);
@@ -193,6 +193,7 @@ public class OverlayService extends Service {
             ImageView imageView = (ImageView) floatingButton;
             imageView.setImageURI(Uri.fromFile(new File(AppPrefs.customImagePath(this))));
             imageView.setBackgroundColor(Color.TRANSPARENT);
+            imageView.setAlpha(AppPrefs.alphaPercent(this) / 100f);
         } else if (floatingButton instanceof TextView) {
             TextView textView = (TextView) floatingButton;
             textView.setText(cameraGlyph());
@@ -207,7 +208,9 @@ public class OverlayService extends Service {
 
     private void applyButtonStyle(TextView textView, int sizePx) {
         String style = AppPrefs.style(this);
-        int color = AppPrefs.colorInt(this);
+        int visualAlpha = Math.round(AppPrefs.alphaPercent(this) * 255 / 100f);
+        int color = withAlpha(AppPrefs.colorInt(this), visualAlpha);
+        int white = withAlpha(0xFFFFFFFF, visualAlpha);
         int stroke = Math.max(dp(2), sizePx / 22);
         int corner = sizePx / 2;
 
@@ -233,10 +236,14 @@ public class OverlayService extends Service {
             textView.setTextColor(color);
         } else {
             drawable.setColor(color);
-            drawable.setStroke(stroke, 0xFFFFFFFF);
-            textView.setTextColor(0xFFFFFFFF);
+            drawable.setStroke(stroke, white);
+            textView.setTextColor(white);
         }
         textView.setBackground(drawable);
+    }
+
+    private int withAlpha(int color, int alpha) {
+        return (color & 0x00FFFFFF) | ((Math.max(0, Math.min(255, alpha))) << 24);
     }
 
     private int dp(int value) {

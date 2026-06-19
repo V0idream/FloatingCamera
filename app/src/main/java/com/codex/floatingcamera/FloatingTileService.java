@@ -1,6 +1,8 @@
 package com.codex.floatingcamera;
 
 import android.content.Intent;
+import android.graphics.drawable.Icon;
+import android.os.Build;
 import android.provider.Settings;
 import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
@@ -39,8 +41,12 @@ public class FloatingTileService extends TileService {
             return;
         }
         boolean enabled = Settings.canDrawOverlays(this) && AppPrefs.overlayEnabled(this);
+        tile.setIcon(Icon.createWithResource(this, R.drawable.ic_qs_camera));
         tile.setState(enabled ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
-        tile.setLabel(enabled ? "关闭悬浮窗" : "开启悬浮窗");
+        tile.setLabel("悬浮相机");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            tile.setSubtitle(enabled ? "已开启" : "已关闭");
+        }
         tile.updateTile();
     }
 }

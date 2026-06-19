@@ -28,6 +28,7 @@
 - 拍摄文件默认保存到 App 专用目录，并创建 `.nomedia`，系统相册默认不可见。
 - App 内提供“查看拍摄文件”入口，可查看、删除，或复制保存到系统相册/视频目录。
 - 支持 Android 状态栏快捷设置磁贴，点击磁贴可在不打开软件页面的情况下开启或关闭悬浮窗。
+- 低透明度下悬浮窗仍保持可拖动，透明度只影响视觉显示。
 
 ## 重要限制
 
@@ -93,6 +94,7 @@ This software is provided only for technical discussion and lawful learning. Ill
 - Captured files are saved to the app-specific directory by default, with `.nomedia` created so they do not appear in the system gallery by default.
 - The app provides a “view captured files” entry for viewing, deleting, or copying files to the system photo/video directories.
 - Supports an Android Quick Settings tile that toggles the floating window without opening the app page.
+- The floating window remains draggable at low opacity; transparency only affects the visual content.
 
 ## Important Limitations
 
