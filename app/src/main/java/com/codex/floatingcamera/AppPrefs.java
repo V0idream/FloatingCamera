@@ -23,6 +23,7 @@ final class AppPrefs {
     private static final String KEY_COLOR = "color";
     private static final String KEY_SUCCESS_MESSAGES = "success_messages";
     private static final String KEY_CUSTOM_IMAGE_PATH = "custom_image_path";
+    private static final String KEY_OVERLAY_ENABLED = "overlay_enabled";
 
     private AppPrefs() {
     }
@@ -66,6 +67,14 @@ final class AppPrefs {
 
     static void setCustomImagePath(Context context, String path) {
         prefs(context).edit().putString(KEY_CUSTOM_IMAGE_PATH, path == null ? "" : path).apply();
+    }
+
+    static boolean overlayEnabled(Context context) {
+        return prefs(context).getBoolean(KEY_OVERLAY_ENABLED, false);
+    }
+
+    static void setOverlayEnabled(Context context, boolean enabled) {
+        prefs(context).edit().putBoolean(KEY_OVERLAY_ENABLED, enabled).apply();
     }
 
     static void save(Context context, int alphaPercent, int sizeDp, String mode,

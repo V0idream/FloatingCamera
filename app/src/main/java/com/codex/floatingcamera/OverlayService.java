@@ -44,17 +44,22 @@ public class OverlayService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         if (!Settings.canDrawOverlays(this)) {
+            AppPrefs.setOverlayEnabled(this, false);
             Toast.makeText(this, "请先授予悬浮窗权限", Toast.LENGTH_SHORT).show();
             stopSelf();
             return START_NOT_STICKY;
         }
         showOrRefresh();
+        if (floatingButton != null) {
+            AppPrefs.setOverlayEnabled(this, true);
+        }
         return START_STICKY;
     }
 
     @Override
     public void onDestroy() {
         removeButton();
+        AppPrefs.setOverlayEnabled(this, false);
         super.onDestroy();
     }
 
@@ -94,6 +99,7 @@ public class OverlayService extends Service {
             try {
                 windowManager.addView(floatingButton, layoutParams);
             } catch (RuntimeException exception) {
+                AppPrefs.setOverlayEnabled(this, false);
                 Toast.makeText(this, "无法显示悬浮窗，请重新授予悬浮窗权限", Toast.LENGTH_SHORT).show();
                 floatingButton = null;
                 stopSelf();
@@ -106,6 +112,7 @@ public class OverlayService extends Service {
             try {
                 windowManager.updateViewLayout(floatingButton, layoutParams);
             } catch (RuntimeException exception) {
+                AppPrefs.setOverlayEnabled(this, false);
                 Toast.makeText(this, "无法更新悬浮窗", Toast.LENGTH_SHORT).show();
                 stopSelf();
             }

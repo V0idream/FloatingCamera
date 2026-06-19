@@ -27,6 +27,7 @@
 - 可关闭“已拍照 / 开始录像 / 录像已保存”等完成提示。
 - 拍摄文件默认保存到 App 专用目录，并创建 `.nomedia`，系统相册默认不可见。
 - App 内提供“查看拍摄文件”入口，可查看、删除，或复制保存到系统相册/视频目录。
+- 支持 Android 状态栏快捷设置磁贴，点击磁贴可在不打开软件页面的情况下开启或关闭悬浮窗。
 
 ## 重要限制
 
@@ -65,6 +66,7 @@ Android 不允许真正无提示地后台调用相机或麦克风。本工程使
    - 拍照模式：点击一次保存一张照片。
    - 录像模式：点击一次开始录像，再点击一次停止并保存。
 9. 回到 App 后点击“查看拍摄文件”，可查看、删除，或保存到系统可见目录。
+10. 可在系统快捷设置编辑页添加“悬浮相机”磁贴；之后点击磁贴即可开启悬浮窗，再次点击即可关闭悬浮窗。
 
 ---
 
@@ -90,6 +92,7 @@ This software is provided only for technical discussion and lawful learning. Ill
 - Optional completion prompts such as “photo captured”, “recording started”, and “video saved” can be disabled.
 - Captured files are saved to the app-specific directory by default, with `.nomedia` created so they do not appear in the system gallery by default.
 - The app provides a “view captured files” entry for viewing, deleting, or copying files to the system photo/video directories.
+- Supports an Android Quick Settings tile that toggles the floating window without opening the app page.
 
 ## Important Limitations
 
@@ -128,3 +131,4 @@ This project currently uses:
    - Photo mode: tap once to save one photo.
    - Video mode: tap once to start recording, then tap again to stop and save.
 9. Return to the app and tap “View captured files” to view, delete, or save files to system-visible directories.
+10. Add the “Floating Camera” tile from the system Quick Settings edit page; tap it to show the floating window, and tap again to hide it.
