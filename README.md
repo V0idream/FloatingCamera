@@ -166,3 +166,18 @@ This project currently uses Java, Android Gradle Plugin 8.7.3, compileSdk 35, an
    * Video mode: tap once to start recording, then tap again to stop and save.
 9. Return to the app and tap “View captured files” to view, delete, or save files to system-visible directories.
 10. Add the “Floating Camera” tile from the system Quick Settings edit page; tap it to show the floating window, and tap again to hide it.
+
+---
+
+## ☕ 支持项目 / Support
+
+如果这个项目对你有帮助，欢迎点一个 Star。  
+若愿意进一步支持，也可以通过赞赏码请作者续一口 AI 订阅。
+
+众所周知，风水宝地土耳其并非久居之所；账号颠沛流离，订阅价格又日渐高昂，维护开源项目实属不易。
+
+你的赞赏将带来：作者诚挚的感谢、更快更稳定的更新动力，以及对合理功能建议的优先考虑。
+
+不赞赏也完全不影响项目使用、Issue 交流和功能建议。只是如果这个项目真的帮到了你——你真的忍心看作者独自面对订阅账单吗 😢
+
+👉 [查看赞赏方式](./docs/support.md)
