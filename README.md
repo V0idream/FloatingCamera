@@ -27,7 +27,12 @@
 ![SDK](https://img.shields.io/badge/compileSdk-35-7C3AED)
 ![Docs](https://img.shields.io/badge/Docs-ZH%20%2F%20EN-FF5722)
 ![Release](https://img.shields.io/github/v/release/V0idream/FloatingCamera?include_prereleases)
-![Downloads](https://img.shields.io/github/downloads/V0idream/FloatingCamera/total)
+
+<p>
+  <a href="https://github.com/V0idream/FloatingCamera/releases">
+    <img src="https://img.shields.io/github/downloads/V0idream/FloatingCamera/total?label=Release%20Downloads&style=for-the-badge" alt="Release Downloads" />
+  </a>
+</p>
 
 </div>
 
