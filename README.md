@@ -26,6 +26,8 @@
 ![Camera](https://img.shields.io/badge/Camera-CameraX%201.5.0-1D4ED8)
 ![SDK](https://img.shields.io/badge/compileSdk-35-7C3AED)
 ![Docs](https://img.shields.io/badge/Docs-ZH%20%2F%20EN-FF5722)
+![Release](https://img.shields.io/github/v/release/V0idream/FloatingCamera?include_prereleases)
+![Downloads](https://img.shields.io/github/downloads/V0idream/FloatingCamera/total)
 
 </div>
 
